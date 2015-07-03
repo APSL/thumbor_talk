@@ -28,7 +28,7 @@ Y la pesca!
 
 * [http://talks.apsl.net/thumbor](http://talks.apsl.net/thumbor/#slide1)
 * Realizada con [landslide](https://github.com/adamzap/landslide)
-* [Código para generar la presentación en github]().
+* [https://github.com/APSL/thumbor_talk](https://github.com/APSL/thumbor_talk).
 * **Todas las imágenes de esta presentación se visualizan vía thumbor**
 
 # Presenter Notes
