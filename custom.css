@@ -1,0 +1,54 @@
+/* We can customize the theme CSS here */
+
+pre { font-size:15px}
+section ul li {font-size:24px; color:#555; padding: 8px 0;}
+section ul li ul li {font-size:20px; color:#555; padding: 6px 0;}
+section ol li {font-size:24px; color:#555; padding: 4px 0;}
+section p {font-size:23px; color:#444}
+header h1 {
+  color: #3e3e3e !important;
+  border-bottom: 4px solid #e9ae12;
+  font-size: 33px;
+}
+header h2 {
+  color: #3e3e3e !important;
+  border-bottom: 4px solid #e9ae12;
+  font-size: 29px;
+}
+section h1 {
+  color: #3e3e3e !important;
+  font-size: 30px;
+}
+section h2 {
+  color: #3e3e3e !important;
+  font-size: 26px;
+}
+
+section h3 {
+  color: #3e3e3e !important;
+  font-size: 22px;
+}
+
+.apsl {
+  position:absolute;
+  bottom:0px;
+  left:0;
+  font-size: 20px;
+  width:100%;
+  color: #555;
+}
+
+.imageslide .apsl {
+  display:none;
+
+}
+
+img.logoapsl {
+  width: 110px;
+  float:right;
+  margin-right:30px;
+}
+img.logogoldcar{
+  width: 110px;
+  float:right;
+}

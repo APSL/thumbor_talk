@@ -1,0 +1,49 @@
+
+2
+Antes de empezar un poco de spam sobre mí, me llamo Edu Herraiz, en eduherraiz.com podeis ver mis cosas, 
+trabajo en apsl como administrador de sistemas y me gusta python, linux y el software libre. Y la pesca!
+
+3
+Podeis encontrar pública esta presentación en esta URL. 
+Está realizada con un software llamado landslide en el que escribes código markdown y genera HTML.
+Podeis ver el código de la presentación en github.
+Y como nota reseñable las imagenes presentadas se visualizan en la presentación gracias a thumbor.
+
+4
+Bien, empezemos. 
+¿Qué es thumbor?
+Es un servidor de imagenes inteligente, ¿porqué inteligente?
+Porque es capaz de encontrar puntos importantes en una imagen y ofrecer recortes adaptados a esos puntos importantes.
+Procesa bajo demanda, es decir, no tenemos que definir a priori que imagen retocada queremos.
+Está escrito en python, que ya es un punto a su favo), pero además, 
+es pythónico y cualquiera de sus partes está preparada para que la adaptemos a nuestras necesidades.
+
+5 
+¿Qué funcionalidad cubre?
+Es capaz de recoger la imagen, desde una URL remota o de un fichero de disco o también se la podemos pasar nosotros desde nuestra aplicación.
+Procesa la imagen, reconociendo incluso que es lo importante, recortando en consecuencia, aplicando filtros y optimizando la imagen para reducir su peso.
+Guarda las imagenes procesadas para no tener que volver a repetir el proceso en la siguiente petición.
+
+6
+¿Cómo funciona?
+El secreto está en la URL. Donde necesites una imagen específica, montas los parámetros de una URL thumbor definiendo como la quieres.
+Por ejemplo, en la primera sección va el parámetro sobre la seguridad. En el segundo sobre el tamaño de la imagen. 
+Qué filtros aplicar a la imagen y finalmente que imagen original queremos.
+Ahora veremos más en detalle cada parte de la URL
+
+7
+Thumbor dispone de dos modos de seguridad. Inseguro, generará cualquier redimensión que le pidamos.
+O el modo seguro.
+Como es el cliente final el que hace la petición a thumbor, lo único que tenemos que proteger es que la imagen que le estamos pidiendo generar sea lícita.
+Para que alguien no aproveche nuestro thumbor para servir sus imagenes.
+Para ello en lugar de unsafe se incluye un hash generado en el momento de crear la URL, a partir de una clave conocida por el servidor y el generador de URLS.
+Tenemos varias librerías para generar de URLS desde cualquier lenguaje. Aquí algunos ejemplos.
+
+También incluye la posibilidad de limitar desde que hosts se puede redimensionar.
+
+8.
+Aquí podeis ver un ejemplo de libthumbor, la librería de python.
+
+
+
+

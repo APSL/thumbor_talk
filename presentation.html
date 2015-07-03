@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Thumbor</title>
+    <!-- Styles -->
+    
+    <link rel="stylesheet" media="print" href="file:///home/edu/Proyectos/presentacion_thumbor/theme/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="file:///home/edu/Proyectos/presentacion_thumbor/theme/css/screen.css">
+    
+    
+    <!-- /Styles -->
+    <!-- Javascripts -->
+    
+    <script type="text/javascript" src="file:///home/edu/Proyectos/presentacion_thumbor/theme/js/slides.js"></script>
+    
+    
+    <!-- /Javascripts -->
+</head>
+<body>
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="time">
+      <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>
+    </div>            
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide titleslide">
+          <div class="inner">
+            
+            <header><h1>Thumbor</h1></header>
+            
+            
+            <section><h2>APSL</h2>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              1/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>¿Qué es thumbor?</h1></header>
+            
+            
+            <section><ul>
+<li>Servidor de imágenes</li>
+<li>Escrito en python</li>
+<li>Recoge</li>
+<li>Procesa (filtro, redimensión, recortado, marca de agua, ...)</li>
+<li>Entrega</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              2/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Documentación</h1></header>
+            
+            
+            <section><ul>
+<li><a href="https://github.com/thumbor/thumbor/wiki/Usage">Wiki de github</a></li>
+<li><a href="https://github.com/thumbor/thumbor">Propio código</a></li>
+<li><a href="http://thumbor.org">thumbor.org</a></li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              3/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>¿Cómo funciona?</h1></header>
+            
+            
+            <section><ul>
+<li>http://thumbor-server/unsafe/550x200/http://dominio.com/imagen.jpg</li>
+<li>Todo se basa sobre la URL que llega a thumbor</li>
+<li>Carga</li>
+<li>Filtros y parámetros</li>
+<li><a href="http://thumborize.me/">http://thumborize.me/</a></li>
+<li>En los ejemplos de esta presentación:<ul>
+<li>Obviamos la partes de thumbor-server y carga de imagen</li>
+<li>Todas las imagenes se cargan vía thumbor</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              4/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Imagen original</h1></header>
+            
+            
+            <section><p><img src='http://www.eduherraiz.com/media/portfolio/uploads/2015/04/13/dsc01223.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              5/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Redimensión y recorte</h1></header>
+            
+            
+            <section><ul>
+<li>Se especifica el tamaño que queremos en el <strong>primer </strong> parámetro</li>
+<li>/unsafe/550x200/</li>
+</ul>
+<p><img src='http://thumbor.eduherraiz.com/unsafe/550x200/http://www.eduherraiz.com/media/portfolio/uploads/2015/04/13/dsc01223.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              6/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Rotado</h1></header>
+            
+            
+            <section><ul>
+<li>/unsafe/320x200/filters:rotate(90)/</li>
+</ul>
+<p><img src='http://thumbor.eduherraiz.com/unsafe/320x200/filters:rotate(90)/http://www.eduherraiz.com/media/portfolio/uploads/2015/04/13/dsc01223.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              7/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Volteado</h1></header>
+            
+            
+            <section><ul>
+<li>/unsafe/-520x-200/</li>
+</ul>
+<p><img src='http://thumbor.eduherraiz.com/unsafe/-520x-200/http://www.eduherraiz.com/media/portfolio/uploads/2015/04/13/dsc01223.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              8/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Luminosidad</h1></header>
+            
+            
+            <section><ul>
+<li>/unsafe/550x200/filters:brightness(40)/</li>
+</ul>
+<p><img src='http://thumbor.eduherraiz.com/unsafe/550x200/filters:brightness(40)/http://www.eduherraiz.com/media/portfolio/uploads/2015/04/13/dsc01223.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              9/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Contraste</h1></header>
+            
+            
+            <section><ul>
+<li>/unsafe/550x200/filters:contrast(120)/</li>
+</ul>
+<p><img src='http://thumbor.eduherraiz.com/unsafe/550x200/filters:contrast(120)/http://www.eduherraiz.com/media/portfolio/uploads/2015/04/13/dsc01223.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              10/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Desenfocado</h1></header>
+            
+            
+            <section><ul>
+<li>/unsafe/550x200/filters:blur(7)/</li>
+</ul>
+<p><img src='http://thumbor.eduherraiz.com/unsafe/550x200/filters:blur(7)/http://www.eduherraiz.com/media/portfolio/uploads/2015/04/13/dsc01223.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Marca de agua</h1></header>
+            
+            
+            <section><ul>
+<li>/unsafe/550x200/filters:watermark(http://$URL/apsl.png,-10,-10,30)/</li>
+</ul>
+<p><img src='http://thumbor.eduherraiz.com/unsafe/550x200/filters:watermark(http://www.apsl.net/static/apslweb2/nivo/themes/apslorman/apsl.png,-10,-10,30)/http://www.eduherraiz.com/media/portfolio/uploads/2015/04/13/dsc01223.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              12/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Esquinas redondeadas</h1></header>
+            
+            
+            <section><ul>
+<li>/unsafe/550x200/filters:round_corner(20,255,255,255)/</li>
+</ul>
+<p><img src='http://thumbor.eduherraiz.com/unsafe/550x200/filters:round_corner(20,255,255,255)/http://www.eduherraiz.com/media/portfolio/uploads/2015/04/13/dsc01223.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              13/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Múltiples filtros</h1></header>
+            
+            
+            <section><ul>
+<li>Se pueden encadenar filters con ":"</li>
+<li>/unsafe/-550x-200/filters:contrast(120):blur(3)/</li>
+</ul>
+<p><img src='http://thumbor.eduherraiz.com/unsafe/-550x-200/filters:contrast(120):blur(3)/http://www.eduherraiz.com/media/portfolio/uploads/2015/04/13/dsc01223.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              14/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Orden de los filtros</h1></header>
+            
+            
+            <section><ul>
+<li><strong>OJO</strong>, el orden de los filtros es relevante</li>
+<li>/unsafe/-550x-200/filters:blur(3):contrast(120)/</li>
+</ul>
+<p><img src='http://thumbor.eduherraiz.com/unsafe/-550x-200/filters:blur(3):contrast(120)/http://www.eduherraiz.com/media/portfolio/uploads/2015/04/13/dsc01223.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              15/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Cargadores</h1></header>
+            
+            
+            <section><ul>
+<li>Via URL:<ul>
+<li>Thumbor tiene dos empaquetados:<ul>
+<li>Cargador http (http_loader)</li>
+<li>Cargador por archivo (file_loader)</li>
+</ul>
+</li>
+<li><a href="https://github.com/APSL/thumbor_aws/blob/master/thumbor_aws/loaders/s3_loader.py">Puedes hacer tuyo custom siguiendo la misma estructura</a></li>
+</ul>
+</li>
+<li>Vía API<ul>
+<li><a href="https://github.com/thumbor/thumbor/wiki/How-to-upload-images">Les pasas el fichero binario vía POST</a></li>
+<li>Un cargador integrado con Django</li>
+</ul>
+</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              16/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Procesado inteligente</h1></header>
+            
+            
+            <section><ul>
+<li>Modo "smart"</li>
+<li>Extrae información de la imagen para mejorar los procesados</li>
+<li>Utiliza <a href="http://opencv.org/">OpenCV</a></li>
+<li>Detectores focales, faciales, ...</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              17/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Procesado inteligente</h1></header>
+            
+            
+            <section><ul>
+<li>/unsafe/550x200/</li>
+</ul>
+<p><img src='http://thumbor.eduherraiz.com/unsafe/550x200/http://www.eduherraiz.com/media/portfolio/uploads/2015/04/13/dsc01223.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              18/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Procesado inteligente</h1></header>
+            
+            
+            <section><ul>
+<li>/unsafe/550x200/smart/</li>
+</ul>
+<p><img src='http://thumbor.eduherraiz.com/unsafe/550x200/smart/http://www.eduherraiz.com/media/portfolio/uploads/2015/04/13/dsc01223.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              19/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Procesado inteligente (debug) - /unsafe/debug/550x200/smart/</h1></header>
+            
+            
+            <section><p><img src='http://thumbor.eduherraiz.com/unsafe/debug/550x200/smart/http://www.eduherraiz.com/media/portfolio/uploads/2015/04/13/dsc01223.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              20/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Original</h1></header>
+            
+            
+            <section><p><img src='http://www.ushuaiabeachhotel.com/media/ushuaia2015/calltoaction/49_tienda3.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              21/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Procesado inteligente</h1></header>
+            
+            
+            <section><ul>
+<li>/unsafe/550x200/</li>
+</ul>
+<p><img src='http://thumbor.eduherraiz.com/unsafe/550x200/http://www.ushuaiabeachhotel.com/media/ushuaia2015/calltoaction/49_tienda3.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              22/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Procesado inteligente</h1></header>
+            
+            
+            <section><ul>
+<li>/unsafe/550x200/smart/</li>
+</ul>
+<p><img src='http://thumbor.eduherraiz.com/unsafe/550x200/smart/http://www.ushuaiabeachhotel.com/media/ushuaia2015/calltoaction/49_tienda3.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              23/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Procesado inteligente (debug) - /unsafe/debug/550x200/smart/</h1></header>
+            
+            
+            <section><p><img src='http://thumbor.eduherraiz.com/unsafe/debug/550x200/smart/http://www.ushuaiabeachhotel.com/media/ushuaia2015/calltoaction/49_tienda3.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              24/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Original</h1></header>
+            
+            
+            <section><p><img src='http://www.ushuaiabeachhotel.com/media/ushuaia2015/calltoaction/49_w.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              25/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Procesado inteligente</h1></header>
+            
+            
+            <section><ul>
+<li>/unsafe/400x200/</li>
+</ul>
+<p><img src='http://thumbor.eduherraiz.com/unsafe/400x200/http://www.ushuaiabeachhotel.com/media/ushuaia2015/calltoaction/49_w.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              26/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Procesado inteligente</h1></header>
+            
+            
+            <section><ul>
+<li>/unsafe/400x200/smart/</li>
+</ul>
+<p><img src='http://thumbor.eduherraiz.com/unsafe/400x200/smart/http://www.ushuaiabeachhotel.com/media/ushuaia2015/calltoaction/49_w.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              27/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Procesado inteligente (debug)</h1></header>
+            
+            
+            <section><ul>
+<li>/unsafe/debug/550x200/smart/</li>
+</ul>
+<p><img src='http://thumbor.eduherraiz.com/unsafe/debug/400x200/smart/http://www.ushuaiabeachhotel.com/media/ushuaia2015/calltoaction/49_w.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              28/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Extraer puntos focales (original)</h1></header>
+            
+            
+            <section><p><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Turkish_Van_Cat.jpg/546px-Turkish_Van_Cat.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              29/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Extraer puntos focales</h1></header>
+            
+            
+            <section><ul>
+<li>/unsafe/300x100/</li>
+</ul>
+<p><img src='http://thumbor.eduherraiz.com/unsafe/300x100/https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Turkish_Van_Cat.jpg/546px-Turkish_Van_Cat.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              30/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Extraer puntos focales (seleccionar foco)</h1></header>
+            
+            
+            <section><ul>
+<li>/unsafe/100x150:300x200/</li>
+</ul>
+<p><img src='http://thumbor.eduherraiz.com/unsafe/100x150:300x200/https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Turkish_Van_Cat.jpg/546px-Turkish_Van_Cat.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              31/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Extraer puntos focales (utilizar foco para recortar)</h1></header>
+            
+            
+            <section><ul>
+<li>/unsafe/300x100/filters:extract_focal()/$URL/unsafe/100x150:300x200/</li>
+</ul>
+<p><img src='http://thumbor.eduherraiz.com/unsafe/300x100/filters:extract_focal()/thumbor.eduherraiz.com/unsafe/100x150:300x200/https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Turkish_Van_Cat.jpg/546px-Turkish_Van_Cat.jpg' /></p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              32/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Seguridad</h1></header>
+            
+            
+            <section><ul>
+<li>Modo seguro<ul>
+<li>Se genera la URL cifrando con una clave configurada en el cliente y en el server</li>
+<li>Python: <a href="https://github.com/thumbor/libthumbor/wiki/Usage">Libthumbor</a></li>
+<li>Java: <a href="http://square.github.io/pollexor/">Pollexor</a></li>
+<li>Javascript: <a href="https://github.com/dcaramelo/ThumborUrlBuilder">ThumborUrlBuilder</a></li>
+<li>/LYlJ76NKiy2HAQ9RZR8iqIOTHGE=/300x150/smart/</li>
+</ul>
+</li>
+<li>Modo inseguro<ul>
+<li>/unsafe/</li>
+<li>Cualquiera puede redimensionar</li>
+</ul>
+</li>
+<li>Se puede restringir vía ALLOWED_HOSTS</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              33/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Libthumbor</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="lineno">1 </span><span class="kn">from</span> <span class="nn">libthumbor</span> <span class="kn">import</span> <span class="n">CryptoURL</span>
+<span class="lineno">2 </span><span class="n">crypto</span> <span class="o">=</span> <span class="n">CryptoURL</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s">&#39;my-security-key&#39;</span><span class="p">)</span>
+<span class="lineno">3 </span>
+<span class="lineno">4 </span><span class="n">encrypted_url</span> <span class="o">=</span> <span class="n">crypto</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+<span class="lineno">5 </span>    <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+<span class="lineno">6 </span>    <span class="n">height</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+<span class="lineno">7 </span>    <span class="n">smart</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+<span class="lineno">8 </span>    <span class="n">image_url</span><span class="o">=</span><span class="s">&#39;/path/to/my/image.jpg&#39;</span>
+<span class="lineno">9 </span><span class="p">)</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              34/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Muchas cosas más</h1></header>
+            
+            
+            <section><ul>
+<li>Control de errores con Sentry integrado</li>
+<li>Encolado de procesos<ul>
+<li>Tarea en segundo plano para procesados smart</li>
+<li>Se devuelve sin smart mientras se genera</li>
+</ul>
+</li>
+<li>Muy adaptable</li>
+<li>Escalable</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              35/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+      <!-- slide source: thumbor/001-intro.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Gracias</h1></header>
+            
+            
+            <section><ul>
+<li>Eso es todo amigos</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="thumbor/001-intro.md">thumbor/001-intro.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              36/36
+            </aside>
+          </footer>
+          <div class="apsl">
+            Thumbor · Abril 2014 · apsl.net · @eduherraiz
+            <img class="logoapsl" src="img/apsl.png" />
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+      
+      <tr id="toc-row-1">
+        <th><a href="#slide1">Thumbor</a></th>
+        <td><a href="#slide1">1</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-2">
+        <th><a href="#slide2">¿Qué es thumbor?</a></th>
+        <td><a href="#slide2">2</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-3">
+        <th><a href="#slide3">Documentación</a></th>
+        <td><a href="#slide3">3</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-4">
+        <th><a href="#slide4">¿Cómo funciona?</a></th>
+        <td><a href="#slide4">4</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-5">
+        <th><a href="#slide5">Imagen original</a></th>
+        <td><a href="#slide5">5</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-6">
+        <th><a href="#slide6">Redimensión y recorte</a></th>
+        <td><a href="#slide6">6</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-7">
+        <th><a href="#slide7">Rotado</a></th>
+        <td><a href="#slide7">7</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-8">
+        <th><a href="#slide8">Volteado</a></th>
+        <td><a href="#slide8">8</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-9">
+        <th><a href="#slide9">Luminosidad</a></th>
+        <td><a href="#slide9">9</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-10">
+        <th><a href="#slide10">Contraste</a></th>
+        <td><a href="#slide10">10</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-11">
+        <th><a href="#slide11">Desenfocado</a></th>
+        <td><a href="#slide11">11</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-12">
+        <th><a href="#slide12">Marca de agua</a></th>
+        <td><a href="#slide12">12</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-13">
+        <th><a href="#slide13">Esquinas redondeadas</a></th>
+        <td><a href="#slide13">13</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-14">
+        <th><a href="#slide14">Múltiples filtros</a></th>
+        <td><a href="#slide14">14</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-15">
+        <th><a href="#slide15">Orden de los filtros</a></th>
+        <td><a href="#slide15">15</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-16">
+        <th><a href="#slide16">Cargadores</a></th>
+        <td><a href="#slide16">16</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-17">
+        <th><a href="#slide17">Procesado inteligente</a></th>
+        <td><a href="#slide17">17</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-18">
+        <th><a href="#slide18">Procesado inteligente</a></th>
+        <td><a href="#slide18">18</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-19">
+        <th><a href="#slide19">Procesado inteligente</a></th>
+        <td><a href="#slide19">19</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-20">
+        <th><a href="#slide20">Procesado inteligente (debug) - /unsafe/debug/550x200/smart/</a></th>
+        <td><a href="#slide20">20</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-21">
+        <th><a href="#slide21">Original</a></th>
+        <td><a href="#slide21">21</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-22">
+        <th><a href="#slide22">Procesado inteligente</a></th>
+        <td><a href="#slide22">22</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-23">
+        <th><a href="#slide23">Procesado inteligente</a></th>
+        <td><a href="#slide23">23</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-24">
+        <th><a href="#slide24">Procesado inteligente (debug) - /unsafe/debug/550x200/smart/</a></th>
+        <td><a href="#slide24">24</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-25">
+        <th><a href="#slide25">Original</a></th>
+        <td><a href="#slide25">25</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-26">
+        <th><a href="#slide26">Procesado inteligente</a></th>
+        <td><a href="#slide26">26</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-27">
+        <th><a href="#slide27">Procesado inteligente</a></th>
+        <td><a href="#slide27">27</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-28">
+        <th><a href="#slide28">Procesado inteligente (debug)</a></th>
+        <td><a href="#slide28">28</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-29">
+        <th><a href="#slide29">Extraer puntos focales (original)</a></th>
+        <td><a href="#slide29">29</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-30">
+        <th><a href="#slide30">Extraer puntos focales</a></th>
+        <td><a href="#slide30">30</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-31">
+        <th><a href="#slide31">Extraer puntos focales (seleccionar foco)</a></th>
+        <td><a href="#slide31">31</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-32">
+        <th><a href="#slide32">Extraer puntos focales (utilizar foco para recortar)</a></th>
+        <td><a href="#slide32">32</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-33">
+        <th><a href="#slide33">Seguridad</a></th>
+        <td><a href="#slide33">33</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-34">
+        <th><a href="#slide34">Libthumbor</a></th>
+        <td><a href="#slide34">34</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-35">
+        <th><a href="#slide35">Muchas cosas más</a></th>
+        <td><a href="#slide35">35</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-36">
+        <th><a href="#slide36">Gracias</a></th>
+        <td><a href="#slide36">36</a></td>
+      </tr>
+      
+      
+    </table>
+  </div>
+  
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Autoscale</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>f</td>
+      </tr>
+      <tr>
+        <th>Presenter view</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Blank screen</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>$().landslide();</script>
+</body>
+</html>

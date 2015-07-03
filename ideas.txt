@@ -1,0 +1,113 @@
+¿Porque thumbor?
+
+Problemática a resolver.
+  - Tratamiento de imagenes como servicio para las aplicaciones (12factor.net)
+  - Redimensionado inteligente según sea la imagen
+  - Número indecente de tamaños diferentes a recortar. Y tamaños nuevos cada día.
+  - Optimización
+  - Velocidad en la entrega
+
+¿Que es thumbor?
+  - Servidor de imagenes escrito en python
+  - Escrito por la gente de globo.com como solución para sus problemas con los redimensionados.
+  - Es capaz de recoger las imagenes
+  - Procesarlas de muchas formas
+  - Entregarlas de manera rápida
+
+
+¿Como funciona la generación de thumbnails?
+  - URL
+    - Seguridad
+      - safe - unsafe
+    - Filtros
+      - tamaño
+      - rotado
+      - color
+      ...
+    - Cargador en URL
+      - Fichero
+      - URL
+      - Propio
+
+Carga de originales
+    - Vía API
+    - Thumbor proporciona un endpoint REST en la ruta /image donde subir las imágenes originales de aplicación a thumbor
+    - Una petición POST
+    - Así no solo tenemos servicio de redimiensionamiento, también de almacenamiento.
+
+Procesado inteligente
+  - Se extrae más información de la imagen (caras, puntos focales, puntos importantes)
+  para ayudar a mejorar los recortes.
+  - Se utiliza opencv para esta detección.
+  - Se pueden añadir detectores opencv a la detección de thumbor
+  - En thumbor esto se conoce como "Detector" y modo "smart"
+  - Cachea está información para no tener que procesarla cada vez
+  - Ejemplos:
+    - Game of thrones premiere
+    - ushuaia 1
+    - ushuaia 2
+
+
+Extraer puntos focales
+  - seleccionar una parte de la imagen para hacer el recorte con ese trozo como importante
+  - No muy intenresante por no ser automático pero puede ser útil en algún caso.
+
+Seguridad
+  - modo seguro
+    - Ejemplo de libthumbor
+  - Modo inseguro
+  - ALLOWED_HOSTS
+  - Sentry integrado
+
+Encolado de las detecciones
+  - El procesado inteligente puede ser un proceso lento
+  - Para no causar espera al usuario mientras se procesa thumbor incorpora un sistema
+  para que otro proceso/s vaya haciendo la detección en las imagenes
+  - Mientras no esté procesada thumbor devuelve la imagen solicitada, pero sin aplicar el modo inteligente
+  - Cuando ya está disponible la detección se recorta con esos puntos nuevos
+  - El proceso es un proyecto aparte tiene el nombre de "remotecv"
+
+Almacenamiento
+  - storage: donde se van guardando los originales
+    - pueden llegar vía http_loader
+    - API
+    - Los deje otra aplicación allí (file_storage)
+  - result_storage:
+    - Cache de thumbor donde los archivos ya procesados se guardan
+    - Si no existe, y existe el original, thumbor lo genera.
+  - A parte de guardar las imagenes en disco podemos almacenarlas en diferentes servicios:
+    - mongo
+    - redis
+
+Custom loader y storages
+  - s3 aws vía https://github.com/APSL/thumbor_aws
+
+Optimizadores
+  - Algoritmos que procesan la imagen para reducir su tamaño sin afectar a la calidad
+  - Mejoras de un 10% aprox., variable según tamaños de imagen
+  - Thumbor incorpora forma de añadir estos optimizadores al proceso
+  - Jpeg
+  - png
+  - GIF
+
+Despliegue:
+  - Tiene sus dificultades: 1 proceso thumbor, opencv, redis, supervisor/circus para tenerlo levantado, 1 proceso remotecv, optimizadores
+  - Mi propuesta: docker
+  - https://github.com/APSL/docker-thumbor
+  - Ejemplo docker-compose total
+  - Demo
+
+Cache por encima de thumbor:
+  - Thumbor es rápido, pero...
+  - Thumbor es un proceso python y siempre será más lento que algo especializado en servir estáticos:
+  - CDN, varnish, nginx, etc..
+  - Podemos montar nuestra capa de caché final por encima de thumbor.
+  - El docker tiene un nginx que si la imagen ya existe en el result_storage no pasa por thumbor
+
+Alta disponibilidad:
+  - Balanceador por encima (haproxy, nginx, Amazon '', etc)
+  - Tantos dockers thumbor como necesitemos
+  - Un redis
+  - Tantos workers remotecv como necesitemos
+  - CDN externo para cachear y distribuir geográficamente si fuese necesario
+  - Escala y lo puede hacer elásticamente
