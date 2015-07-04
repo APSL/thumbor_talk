@@ -315,7 +315,7 @@ Thumbor incorpora filtros más avanzados, como este, posibilitando añadir una m
 
 * /filters:round_corner(20,255,255,255)/
 
-<img src='http://thumbor.eduherraiz.com/putw3OafEQq4Uq20iRPfE4vCs2I=/700x0/filters:filters:round_corner(20,255,255,255)/i.huffpost.com/gen/1179678/images/o-KHALEESI-BADASS-facebook.jpg' />
+<img src='http://thumbor.eduherraiz.com/Ga2JUZaMkceWF4v-bPQsl_lXXvk=/700x0/smart/filters:round_corner(20,255,255,255)/i.huffpost.com/gen/1179678/images/o-KHALEESI-BADASS-facebook.jpg' />
 
 ---
 
@@ -323,7 +323,7 @@ Thumbor incorpora filtros más avanzados, como este, posibilitando añadir una m
 
 * /filters:blur(7):round_corner(20,255,255,255)/
 
-<img src='http://thumbor.eduherraiz.com/2JswGhYjxTyQMnYk3V5lNQj1Ffk=/700x0/filters:blur(7):filters:round_corner(20,255,255,255)/i.huffpost.com/gen/1179678/images/o-KHALEESI-BADASS-facebook.jpg' />
+<img src='http://thumbor.eduherraiz.com/47GkAKC52Si-dL7Z47wcs-HEN44=/700x0/smart/filters:blur(7):round_corner(20,255,255,255)/i.huffpost.com/gen/1179678/images/o-KHALEESI-BADASS-facebook.jpg' />
 
 # Presenter notes
 
