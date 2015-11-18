@@ -1,0 +1,40 @@
+Mejoras charla pycones thumbor
+
+Sobre mí: fuera pescando en mallorca, mejor foto.
+Sobre esta presentación: Más grande, varias diapositvas (que se vea)
+
+Que es thumbor: 
+    Servidor de imagenes
+    Procesamiento bajo demanda
+
+Como funciona:
+    Comentario de los ejemplos fuera de las diapos, de palabra.
+
+Seguridad:
+    * Cualquiera puede generar URLS
+    * Explicar el proceso de securización en la generación de una URL 
+    
+    * Demo online -> mostrar el script python y la generación de una securizada.
+    
+Ejemplos:
+    * Watermark no funciona por cambio de web de apsl
+    
+Storage:
+    * Limpiar de los gráficos y explicar simplemente que permite varios storages y que podemos escoger el que nos guste mas.
+    * Dejar claro que lo que se especifica en la URL es la referencia que llegará al cargador del storage
+    * Comentar que hay un storage de originales y una cache de resultados (result_storage)
+    
+Smart:
+    Mejores ejemplos de smart
+    Un caso que falle?
+
+Debug con el ejemplo
+
+Detección encolada
+Optimizadores
+Instalación:
+    Explicar un poco más los elementos necesarios
+    
+Demo de uso con docker un ejemplo básico
+
+Ventajas: mover las ventajas al principio

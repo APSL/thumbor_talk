@@ -1,6 +1,7 @@
 
 # Thumbor
-## APSL
+## [http://talks.apsl.net/thumbor](http://talks.apsl.net/thumbor/#slide1)
+## [https://github.com/APSL/thumbor_talk](https://github.com/APSL/thumbor_talk)
 
 .fx: titleslide
 
@@ -12,7 +13,6 @@
 * [http://www.eduherraiz.com](http://www.eduherraiz.com)
 * Administrador de sistemas en [APSL](http://www.apsl.net)
 * Me gusta programar en Python, Linux y el software libre.
-* [http://www.pescandoenmallorca.com/](http://www.pescandoenmallorca.com/)
 
 <img src='http://thumbor.eduherraiz.com/Yj4Fn4jLJz7XKiEqfK0Z8aZoFlQ=/200x0/www.eduherraiz.com/static/portfolio/images/avatar-180.png' />
 
@@ -20,34 +20,14 @@
 
 Antes de empezar un poco de spam sobre mí.
 Me llamo Edu Herraiz, en eduherraiz.com podeis ver mis cosas, trabajo en apsl como administrador de sistemas y me gusta python, linux y el software libre. 
-Y la pesca!
-
----
-
-# Sobre esta presentación
-
-* [http://talks.apsl.net/thumbor](http://talks.apsl.net/thumbor/#slide1)
-* Realizada con [landslide](https://github.com/adamzap/landslide)
-* [https://github.com/APSL/thumbor_talk](https://github.com/APSL/thumbor_talk).
-* **Todas las imágenes de esta presentación se visualizan vía thumbor**
-
-# Presenter Notes
-
-Podeis encontrar pública esta presentación en esta URL. 
-
-Está realizada con un software llamado landslide en el que escribes código markdown y genera HTML.
-
-Pódeis ver el código de la presentación en github.
-
-Y como nota reseñable, las imágenes presentadas se visualizan en la presentación directamente desde un thumbor.
 
 ---
 
 # ¿Qué es thumbor?
 
 * Servidor de imágenes total e **inteligente**
-* Encuentra puntos importantes de la imagen para redimensionar
 * Procesa bajo demanda
+* Opcionalmente encuentra puntos importantes de la imagen para redimensionar (opencv)
 * Escrito en pythony pythónico
 * Libre (Licencia MIT)
 * [globo.com](http://globo.com)
@@ -76,8 +56,8 @@ El proyecto lo empezó el periodico brasileño globo, para mejorar su proceso de
 # ¿Qué funcionalidad cubre?
 
 * Recoge
-    * De un URL remota
-    * De un fichero
+    * De un URL remota (http_loader)
+    * De un storage (filesystem, mongodb, redis, memcached, AWS)
     * De una aplicación (vía API)
 * Procesa
     * Detecta puntos importantes
@@ -96,21 +76,20 @@ Es capaz de recoger la imagen, desde una URL remota o de un fichero de disco o t
 Procesa la imagen, reconociendo incluso que es lo importante, recortando en consecuencia, aplicando filtros y optimizando la imagen para reducir su peso.
 
 Y también se encarga de entregarlas al cliente final, guardando las imágenes procesadas en cache para no tener que volver a repetir el proceso en la siguiente petición.
-    
----
 
+---
 # ¿Cómo funciona?
 
-* Generación de la URL
+---
+
+# Generación de la URL
+
 * <span style="color:#0073FF">http://thumbor-server</span>/<span style="color:#136340">unsafe</span>/<span style="color:#FF3437">550x200</span>/<span style="color:#B209AF">filters:filtro(0)</span>/<span style="color:#FF8A04">dominio.com/imagen.jpg</span>
 * <span style="color:#0073FF">Servidor thumbor</span>
 * <span style="color:#136340">Seguridad</span>
 * <span style="color:#FF3437">Tamaño</span>
 * <span style="color:#B209AF">Filtros y parámetros</span>
 * <span style="color:#FF8A04">Cargador</span>
-* En los ejemplos de esta presentación:
-    * Obviamos la partes de seguridad y carga
-    * Todas las imágenes se cargan vía thumbor
 
 # Presenter Notes
 
@@ -575,7 +554,8 @@ Tenemos optimizadores para los formatos típicos. Y añadir nuestros propios opt
 
 * Está empaquetado en PyPI
 * Opencv
-* Dependencias
+* Dependencias de sistema
+* Varios procesos y servicios
 * 82 Variables de configuración
 
 <img src='http://thumbor.eduherraiz.com/dXa9GajsulhPADC_vX_g97z3Jg0=/-x0/louisecardon.com/wp-content/uploads/2015/06/drama_queen1.jpg'>
@@ -641,14 +621,7 @@ Un balanceador al gusto e incluso con una CDN por encima para acelerar la distri
 
 ---
 
-# Ventajas
 
-* Separación de toda la gestión de media de la aplicación
-* Facilita compartir medias entre diferentes aplicaciones
-* Dominio separado para las peticiones media acelera carga de la página
-* Redimensiones no las hace el proceso de la aplicación
-* No necesitamos saber a priori el tamaño de la redimensión
-* Prueba de imágenes rápida en desarrollo
 
 
 ---

@@ -1,0 +1,60 @@
+Que es thumbor?
+Funcionalidad
+    Recoger
+    Procesar
+    Entregar
+
+¿cómo funciona?
+    Imagen de todo el proceso (caso de uso típico)
+    App recoge imagen y la guarda en un storage
+    App genera la URL thumbor que entrega al cliente (sin generar el thumb todavía)
+    Cliente solicita la imagen a thumbor y este se la sirve según los parametros que le llegan de la URL
+
+Ventajas
+
+Generación de la URL
+
+Entonces... Si es el cliente el que le pide la redimensión, puede crear nuevos tamaños o utilizar el servicio?
+
+    Seguridad
+        
+Filtros
+
+Vamos a ver como hace thumbor para optimizar la creación de los imagenes generadas.
+Loader, storage, result_storage
+    Al hacer una petición mira el parametro del cargador y comprueba si está en el result_storage
+    Si no está, comprueba si está la imagen original en el storage para redimensionarla
+    Si no está, llama al loader para cargar la imagen en el storage.
+        STORAGE_EXPIRATION_SECONDS
+        
+Gráfica de tiempos comparando los 3 casos
+
+Tipos de storage
+    Disco
+    Redis
+    MongoDB
+    Memcache
+    Amazon S3
+    
+Custom storage
+    Ejemplo de código
+    
+Uno de las mejores funcionalidaes es el procesado inteligente:
+Procesado inteligente
+    Detección de puntos de interés
+    Filtro "smart"
+    Procesa la imagen con opencv para
+    Dos ejemplos
+
+Pero claro, a medida que añadimos diferentes tipo de procesamientos al stack de busqueda el proceso de Detección se hace más lento.
+    Gráfica de tiempos, con o sin procesado inteligente
+    Detección encolada
+
+Optimizadores
+    Thumbor permite incluir optimizadores de la imagen final
+    Gráfica de mejoras en porcentaje respecto a la imagen original según el tamaño de la imagen
+    
+Instalación
+    Demo de puesta en marcha de un docker
+    Demo de creación de una URL
+    
