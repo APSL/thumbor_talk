@@ -50,6 +50,15 @@ Es libre, con la licencia MIT.
 
 El proyecto lo empezó el periodico brasileño globo, para mejorar su proceso de tratamiento de imágenes en 2011.
 
+---
+
+# Problemática
+<img src='img/thumbor2.png' />
+
+---
+
+# Con Thumbor
+<img src='img/thumbor1.png' />
 
 ---
 
@@ -76,9 +85,6 @@ Es capaz de recoger la imagen, desde una URL remota o de un fichero de disco o t
 Procesa la imagen, reconociendo incluso que es lo importante, recortando en consecuencia, aplicando filtros y optimizando la imagen para reducir su peso.
 
 Y también se encarga de entregarlas al cliente final, guardando las imágenes procesadas en cache para no tener que volver a repetir el proceso en la siguiente petición.
-
----
-# ¿Cómo funciona?
 
 ---
 

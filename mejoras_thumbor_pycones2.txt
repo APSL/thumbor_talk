@@ -15,7 +15,6 @@ Ventajas
 Generación de la URL
 
 Entonces... Si es el cliente el que le pide la redimensión, puede crear nuevos tamaños o utilizar el servicio?
-
     Seguridad
         
 Filtros
@@ -45,7 +44,8 @@ Procesado inteligente
     Filtro "smart"
     Procesa la imagen con opencv para
     Dos ejemplos
-
+    Capturas de app de meneame
+    
 Pero claro, a medida que añadimos diferentes tipo de procesamientos al stack de busqueda el proceso de Detección se hace más lento.
     Gráfica de tiempos, con o sin procesado inteligente
     Detección encolada
