@@ -28,7 +28,7 @@ Me llamo Edu Herraiz, en eduherraiz.com podeis ver mis cosas, trabajo en apsl co
 * Servidor de imágenes total e **inteligente**
 * Procesa bajo demanda
 * Opcionalmente encuentra puntos importantes de la imagen para redimensionar (opencv)
-* Escrito en pythony pythónico
+* Escrito en python y pythónico
 * Libre (Licencia MIT)
 * [globo.com](http://globo.com)
 
@@ -119,7 +119,7 @@ Voy a obviar la parte de seguridad y carga en los ejemplos donde no sea relevant
 
 * Modo inseguro
     * /unsafe/
-    * Cualquiera puede redimensionar
+    * Cualquiera puede generar URL -> Se podrían aprovechar
 
 * Modo seguro
     * Se genera la URL cifrando con una clave configurada en el cliente y en el server
@@ -314,20 +314,18 @@ Thumbor incorpora filtros más avanzados, como este, posibilitando añadir una m
 
 También se pueden encadenar filtros con el símbolo 2 puntos. Los irá aplicando secuencialmente.
 
+
+
 ---
 
-# <span style="color:#FF8A04">Cargador</span>
+# Storages
 
-* <span style="color:#FF8A04">loader</span>
-* Via URL:
-    * Cargador http (http_loader)
-    * Cargador por archivo (file_loader)
-    * [Cargador AWS S3](https://github.com/APSL/thumbor_aws/blob/master/thumbor_aws/loaders/s3_loader.py) (custom)
-* Vía API
-    * [Petición POST con el fichero de la imagen](https://github.com/thumbor/thumbor/wiki/How-to-upload-images)
-    * Un campo de Django que utiliza esta API
+<img src='img/storage.png' />
 
 # Presenter notes
+Thumbor guarda las imágenes procesadas para no tener que procesarlas de nuevo. Lo llaman result_storage
+
+El proyecto solo propone guardar esta caché en disco, pero puede ser interesante para algunas arquitecturas de alta disponibilidad guardar las imágenes procesadas en s3 con el controlador de cache propio igual que en los otros casos.
 
 El último parámetro de la URL es el que indica la imagen original a cargar.
 
@@ -343,52 +341,21 @@ Dentro de un momento veremos como almacena thumbor las imágenes, pero aquí cab
 Se envía el fichero vía POST y lo almacena.
 Nosotros utilizamos esta API para integrar thumbor con una aplicación Django. Y que suba la imagen directamente a thumbor.
 
-    
----
-
-# Almacenamiento
-
-* storage
-* Donde se guardan los ficheros ya cargados
-    * Disco
-    * Redis
-    * Mongodb
-    * Memcache
-    * [Amazon S3](https://github.com/APSL/thumbor_aws/blob/master/thumbor_aws/storages/s3_storage.py) (custom)
-
-# Presenter Notes
-
 El almacenamiento (o storage) es donde se guardan los archivos que ya han sido cargados, para no tener que cargarlos cada vez.
 ¿Puede conincidir el almacenacimiento con el cargador? sí, pero esta separación nos ofrece independencia y versatilidad.
 
-Tenemos la posibilidad de utilizar almacenacimiento a disco, en bases de datos mongo, redis o memcache. O utlizando uno propio otra vez, para el caso de s3.
-
 ---
 
-# Caché
+# <span style="color:#FF8A04">Custom, custom, custom</span>
 
-* result_storage
-* Donde se guardan las imágenes ya procesadas
-    * Disco
+* <span style="color:#FF8A04">Custom loader</span>
+    * [Cargador AWS S3](https://github.com/APSL/thumbor_aws/blob/master/thumbor_aws/loaders/s3_loader.py) (custom)
+* <span style="color:#FF8A04">Custom storage</span>
     * [Amazon S3](https://github.com/APSL/thumbor_aws/blob/master/thumbor_aws/result_storages/s3_storage.py) (custom)
-
-# Presenter Notes
-
-Thumbor guarda las imágenes procesadas para no tener que procesarlas de nuevo. Lo llaman result_storage
-
-El proyecto solo propone guardar esta caché en disco, pero puede ser interesante para algunas arquitecturas de alta disponibilidad guardar las imágenes procesadas en s3 con el controlador de cache propio igual que en los otros casos.
+* <span style="color:#FF8A04">Vía API</span>
+    * [Petición POST con el fichero de la imagen](https://github.com/thumbor/thumbor/wiki/How-to-upload-images)
 
 --- 
-
-# Resumen
-
-<img src='http://thumbor.eduherraiz.com/tK59QW0Y8gqLX679L3Ls3VEiTz0=/800x0/www.eduherraiz.com/media/portfolio/others/folders.png'/>
-
-# Presenter Notes
-
-Resumiendo, tenemos estos tres conceptos de almacenacimiento de thumbor.
-
----
 
 # Resumen
 
@@ -488,33 +455,16 @@ Podemos ver que ha detectado en la imagen con el parámetro en la URL de debug.
 
 ---
 
-# Otro ejemplo
+# Meneame app
 
-<img src='http://thumbor.eduherraiz.com/hs4kyqsDRg1BeR5HAxgOsBhdj7I=/800x0/www.eduherraiz.com/media/portfolio/others/python.jpg'/>
-
----
-
-# Normal
-
-* /400x400/
-
-<img src='http://thumbor.eduherraiz.com/v1RQp-Z4j-NyOS-br9LBwBfEJq0=/400x400/www.eduherraiz.com/media/portfolio/others/python.jpg'/>
+<img src='img/meneame_antes.png'/>
 
 ---
 
-# Smart
+# Meneame app (smart)
 
-* /400x400/smart/
+<img src='img/meneame_despues.png'/>
 
-<img src='http://thumbor.eduherraiz.com/-YVDz8U_YE3DKmRr53p1Fo5z7H8=/400x400/smart/www.eduherraiz.com/media/portfolio/others/python.jpg'/>
-
----
-
-# Debug 
-
-* /debug/smart/
-
-<img src='http://thumbor.eduherraiz.com/unsafe/debug/smart/www.eduherraiz.com/media/portfolio/others/python.jpg'/>
 
 ---
 
@@ -610,35 +560,7 @@ Y ejecutais un comando "docker-compose up". Ya podreis probar en local todo el s
 
 ---
 
-# Escalabilidad
-
-<img src='http://thumbor.eduherraiz.com/RuqtehFcyA436PDmfCmjwLw9_Xw=/0x650/www.eduherraiz.com/media/portfolio/others/escalabilidad.png'/>
-
-# Presenter notes
-
-Thumbor escala muy bien, os propongo este esquema como ejemplo. 
-
-Podríamos tener los servicios de almacenacimiento y base de datos redis en servicios cloud que nos ya nos ofrezcan alta disponibilidad.
-
-Con ene instancias que contengan los procesos thumbor y remotecv que realmente procesan, con un número de instancias elástico según carga.
-
-Un balanceador al gusto e incluso con una CDN por encima para acelerar la distribución geográfica y la entrega.
-
-
----
-
-
-
-
----
-
-# Y mucho más
-
-<img src='http://thumbor.eduherraiz.com/qckm7CcOEL_HNv2kDxLWiTOMraE=/0x650/3.bp.blogspot.com/-LDO6MWpJLp4/UDvbHYMz09I/AAAAAAAACLE/8_rxurVDxMk/s1600/pluma_tintero_violeta1.png'/>
-
-# Presenter Notes
-
-Me dejo algunas cosas en el tintero, es imposible explicarlo todo en este reducido tiempo, pero espero haber cubierto lo importante.
+# Demo time
 
 ---
 
@@ -657,10 +579,22 @@ Gracias por atender y espero poder resolver vuestras dudas.
 
 ---
 
-# ¿Preguntas?
-
----
-
 <img src='http://thumbor.eduherraiz.com/p75qqh8w3xs_mxE2HGAn1zVCMSY=/1024x768/smart/www.eduherraiz.com/media/portfolio/others/salteando.jpg'/>
 
 .fx: imageslide
+
+---
+
+# Escalabilidad
+
+<img src='http://thumbor.eduherraiz.com/RuqtehFcyA436PDmfCmjwLw9_Xw=/0x650/www.eduherraiz.com/media/portfolio/others/escalabilidad.png'/>
+
+# Presenter notes
+
+Thumbor escala muy bien, os propongo este esquema como ejemplo. 
+
+Podríamos tener los servicios de almacenacimiento y base de datos redis en servicios cloud que nos ya nos ofrezcan alta disponibilidad.
+
+Con ene instancias que contengan los procesos thumbor y remotecv que realmente procesan, con un número de instancias elástico según carga.
+
+Un balanceador al gusto e incluso con una CDN por encima para acelerar la distribución geográfica y la entrega.

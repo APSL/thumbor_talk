@@ -26,7 +26,13 @@ Loader, storage, result_storage
     Si no está, llama al loader para cargar la imagen en el storage.
         STORAGE_EXPIRATION_SECONDS
         
-Gráfica de tiempos comparando los 3 casos
+Gráfica de tiempos comparando los casos
+    Tiempos storage
+        cdn
+        result_storage
+        storage
+        file_load
+        http_load
 
 Tipos de storage
     Disco
