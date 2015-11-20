@@ -69,10 +69,10 @@ El proyecto lo empezó el periodico brasileño globo, para mejorar su proceso de
     * De un storage (filesystem, mongodb, redis, memcached, AWS)
     * De una aplicación (vía API)
 * Procesa
-    * Detecta puntos importantes
     * Recorta
     * Aplica filtros
     * Optimiza
+    * Detecta puntos importantes para recortar mejor
 * Entrega
     * Cachea resultados
 
@@ -85,6 +85,12 @@ Es capaz de recoger la imagen, desde una URL remota o de un fichero de disco o t
 Procesa la imagen, reconociendo incluso que es lo importante, recortando en consecuencia, aplicando filtros y optimizando la imagen para reducir su peso.
 
 Y también se encarga de entregarlas al cliente final, guardando las imágenes procesadas en cache para no tener que volver a repetir el proceso en la siguiente petición.
+
+---
+
+# La magia está en la URL
+
+<img src='https://s-media-cache-ak0.pinimg.com/736x/96/68/3f/96683f06b0d5c97daebabc0fc00e1b74.jpg' />
 
 ---
 
