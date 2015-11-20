@@ -285,9 +285,9 @@ Podemos rotar la imagen especificando el número de grados
 
 # Marca de agua
 
-* /filters:watermark(http://$URL/apsl.png,-10,-10,30)/
+* /filters:watermark(http://$URL/pycones_logo.png,-10,-10,30)/
 
-<img src='http://thumbor.eduherraiz.com/TmB0KXWY7YjnVEqZNtBJjDLYoRI=/700x0/filters:watermark(www.apsl.net/static/apslweb2/nivo/themes/apslorman/apsl.png,-10,-10,30)/i.huffpost.com/gen/1179678/images/o-KHALEESI-BADASS-facebook.jpg' />
+<img src='http://thumbor.eduherraiz.com/lhgJ7l-51w79pkucB07blZTve08=/700x0/filters:watermark(www.eduherraiz.com/media/portfolio/others/pycones_logo.png,-10,-10,30)/i.huffpost.com/gen/1179678/images/o-KHALEESI-BADASS-facebook.jpg' />
 
 # Presenter Notes
 
@@ -343,6 +343,18 @@ Nosotros utilizamos esta API para integrar thumbor con una aplicación Django. Y
 
 El almacenamiento (o storage) es donde se guardan los archivos que ya han sido cargados, para no tener que cargarlos cada vez.
 ¿Puede conincidir el almacenacimiento con el cargador? sí, pero esta separación nos ofrece independencia y versatilidad.
+
+---
+
+# Tiempo de carga una petición
+
+<img src='img/grafico1.png'/>
+
+---
+
+# Thumbor vs Nginx
+
+<img src='img/grafico2.png' />
 
 ---
 
