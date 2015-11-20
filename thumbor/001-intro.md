@@ -493,7 +493,13 @@ Podemos ver que ha detectado en la imagen con el parámetro en la URL de debug.
 
 ---
 
-# Detección encolada
+# Tiempos normal vs smart
+
+<img src='img/tiempos_smart.png'/>
+
+---
+
+# Detección encolada (remotecv)
 
 <img src='img/remotecv.png' />
 
