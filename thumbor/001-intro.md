@@ -161,6 +161,8 @@ También incluye la posibilidad de limitar desde que hosts se puede redimensiona
         height=200,
         image_url='www.midominio.com/image.jpg'
     )
+    
+    print encrypted_url
 
 URL generada:
 /<span style="color:#B209AF">LYlJ76NKiy2HAQ9RZR8iqIOTHGE=</span>/300x200/www.midominio.com/image.jpg
@@ -171,7 +173,10 @@ Aquí podeis ver un ejemplo de libthumbor, la librería de python.
 
 ---
 
-# <span style="color:#FF3437">Tamaño</span>
+# Ejemplos
+
+---
+# <span style="color:#FF3437">Tamaño (original)</span>
 
 <img src='http://thumbor.eduherraiz.com/7h2Rqx7cCaxl5T0nWE0Lq62gj3s=/400x0/www.skyhdwallpaper.com/wp-content/uploads/2014/10/Pear-902x1024.jpg' />
 
@@ -238,7 +243,7 @@ O los dos ejes.
 
 ---
 
-# <span style="color:#B209AF">Filtros y parámetros</span>
+# <span style="color:#B209AF">Filtros y parámetros (original)</span>
 
 <img src='http://thumbor.eduherraiz.com/lY4BggHvlP60kByUlL74S3Dg44s=/700x0/i.huffpost.com/gen/1179678/images/o-KHALEESI-BADASS-facebook.jpg' />
 
@@ -320,7 +325,9 @@ Thumbor incorpora filtros más avanzados, como este, posibilitando añadir una m
 
 También se pueden encadenar filtros con el símbolo 2 puntos. Los irá aplicando secuencialmente.
 
+---
 
+# Arquitectura
 
 ---
 
@@ -488,21 +495,17 @@ Podemos ver que ha detectado en la imagen con el parámetro en la URL de debug.
 
 # Detección encolada
 
-* Detección inteligente lleva mucho tiempo
-* Proceso en background separado
-* **RemoteCV**
-* Se comunica vía redis con thumbor
-* Se sirve sin smart si no está la detección
+<img src='img/remotecv.png' />
 
 # Presenter Notes
 
 Teniendo el original ya cargado, lo que tarda más tiempo en todo el proceso thumbor es la detección inteligente.
 
-Para resolver este problema, thumbor permite una delegación de la detección a un proceso a parte que lo hace en background, llamado remotecv.
-
-Remotecv se comunica con thumbor vía un redis.
-
-Cuando se pide un recorte inteligente, se encola la detección y mientras se sirve la imagen en modo normal.
+* Detección inteligente lleva mucho tiempo
+* Proceso en background separado
+* **RemoteCV**
+* Se comunica vía redis con thumbor
+* Se sirve sin smart si no está la detección
 
 ---
 
@@ -579,6 +582,30 @@ Y ejecutais un comando "docker-compose up". Ya podreis probar en local todo el s
 ---
 
 # Demo time
+
+---
+
+# Demo imagen original
+
+<img src='http://localhost:8000/unsafe/800x/eduherraiz.com/media/portfolio/others/pyladies.png' />
+
+---
+
+# Demo imagen recortada
+
+<img src='http://localhost:8000/unsafe/800x300/eduherraiz.com/media/portfolio/others/pyladies.png' />
+
+---
+
+# Demo imagen recortado inteligente
+
+<img src='http://localhost:8000/unsafe/800x300/smart/eduherraiz.com/media/portfolio/others/pyladies.png' />
+
+---
+
+# Demo imagen debug
+
+<img src='http://localhost:8000/unsafe/debug/800x300/smart/eduherraiz.com/media/portfolio/others/pyladies.png' />
 
 ---
 

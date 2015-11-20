@@ -1,0 +1,12 @@
+Mostrar docker-compose.yml
+    vim docker-compose.yml
+Iniciar dockers
+    docker-compose up -d
+Mostrar dockers en marcha
+    docker-compose ps
+Mostrar contenido de data
+    ls data
+Lanzar una petición unsafe
+    http://localhost:8000/unsafe/400x/www.eduherraiz.com/static/portfolio/images/avatar-180.png
+Lanzar una petición smart
+http://kiwi9.apsl.net:8000/unsafe/debug/700x/smart/eduherraiz.com/media/portfolio/others/pygirls.png
