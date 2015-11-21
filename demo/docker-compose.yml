@@ -9,8 +9,18 @@ thumbor:
     STORAGE: thumbor.storages.file_storage
     RESULT_STORAGE: thumbor.result_storages.file_storage
     RESULT_STORAGE_STORES_UNSAFE: True
-    DETECTORS: "['thumbor.detectors.face_detector','thumbor.detectors.feature_detector',]"
-    STORAGE: thumbor.storages.file_storage
+    DETECTORS: "['thumbor.detectors.queued_detector.queued_complete_detector',]"
+    STORAGE: thumbor.storages.mixed_storage
+    REDIS_STORAGE_SERVER_HOST: redis
+    REDIS_STORAGE_SERVER_PORT: 6379
+    REDIS_STORAGE_SERVER_DB: 0
+    REDIS_QUEUE_SERVER_HOST: redis
+    REDIS_QUEUE_SERVER_PORT: 6379
+    REDIS_QUEUE_SERVER_DB: 0
+    MIXED_STORAGE_DETECTOR_STORAGE: thumbor.storages.redis_storage
+    MIXED_STORAGE_FILE_STORAGE: thumbor.storages.file_storage
+  links:
+    - redis:redis
 nginx:
   image: apsl/thumbor-nginx:latest
   links:
@@ -20,4 +30,13 @@ nginx:
   ports:
     - "8001:80" # nginx cache port (with failover to thumbor)
   hostname: nginx
- 
+remotecv:
+  image: apsl/remotecv:latest
+  links:
+    - redis:redis
+  environment:
+    REDIS_HOST: redis
+    REDIS_PORT: 6379
+    REDIS_DATABASE: 0
+redis:
+  image: redis:latest 

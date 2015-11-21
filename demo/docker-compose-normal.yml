@@ -1,0 +1,23 @@
+thumbor:
+  image: apsl/thumbor-multiprocess:latest
+  volumes:
+    - ./data:/data
+    - ./logs:/logs
+  ports:
+    - "8000:80" # thumbor port
+  environment:
+    STORAGE: thumbor.storages.file_storage
+    RESULT_STORAGE: thumbor.result_storages.file_storage
+    RESULT_STORAGE_STORES_UNSAFE: True
+    DETECTORS: "['thumbor.detectors.face_detector','thumbor.detectors.feature_detector',]"
+    STORAGE: thumbor.storages.file_storage
+nginx:
+  image: apsl/thumbor-nginx:latest
+  links:
+    - thumbor:thumbor
+  volumes_from:
+    - thumbor
+  ports:
+    - "8001:80" # nginx cache port (with failover to thumbor)
+  hostname: nginx
+ 

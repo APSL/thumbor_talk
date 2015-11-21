@@ -591,21 +591,16 @@ Y ejecutais un comando "docker-compose up". Ya podreis probar en local todo el s
 
 ---
 
+# Demo imagen recortado inteligente
+
+<img src='http://localhost:8000/unsafe/800x300/smart/eduherraiz.com/media/portfolio/others/pyladies.png' />
+
+---
+
 # Demo imagen original
 
 <img src='http://localhost:8000/unsafe/800x/eduherraiz.com/media/portfolio/others/pyladies.png' />
 
----
-
-# Demo imagen recortada
-
-<img src='http://localhost:8000/unsafe/800x300/eduherraiz.com/media/portfolio/others/pyladies.png' />
-
----
-
-# Demo imagen recortado inteligente
-
-<img src='http://localhost:8000/unsafe/800x300/smart/eduherraiz.com/media/portfolio/others/pyladies.png' />
 
 ---
 
