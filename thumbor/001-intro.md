@@ -19,7 +19,7 @@
 # Presenter Notes
 
 Antes de empezar un poco de spam sobre mí.
-Me llamo Edu Herraiz, en eduherraiz.com podeis ver mis cosas, trabajo en apsl como administrador de sistemas y me gusta python, linux y el software libre. 
+Me llamo Edu Herraiz, en eduherraiz.com podeis ver mis cosas, trabajo en apsl como administrador de sistemas y me gusta python, linux y el software libre.
 
 ---
 
@@ -36,7 +36,7 @@ Me llamo Edu Herraiz, en eduherraiz.com podeis ver mis cosas, trabajo en apsl co
 
 # Presenter Notes
 
-Bien, empezemos. 
+Bien, empezemos.
 
 ¿Qué es thumbor? Es un servidor de imágenes total, porque incluye todo lo que podemos necesitar para gestionar nuestro media.
 
@@ -107,21 +107,21 @@ Y también se encarga de entregarlas al cliente final, guardando las imágenes p
 
 ¿Cómo funciona?
 
-El secreto está en la URL. 
+El secreto está en la URL.
 
 Donde necesites una imagen específica, montas los parámetros de una URL thumbor definiendo como la quieres.
 
-Por ejemplo, en la primera sección va el parámetro sobre la seguridad. En el segundo sobre el tamaño de la imagen. 
+Por ejemplo, en la primera sección va el parámetro sobre la seguridad. En el segundo sobre el tamaño de la imagen.
 
 Qué filtros aplicar a la imagen y finalmente el parámetro de la imagen original a cargar.
 
 Ahora veremos más en detalle las opciones cada parte de la URL.
 
 Voy a obviar la parte de seguridad y carga en los ejemplos donde no sea relevante, para que quede más claro.
-    
+
 ---
 
-# <span style="color:#136340">Seguridad</span>
+# Seguridad
 
 * Modo inseguro
     * /unsafe/
@@ -161,7 +161,7 @@ También incluye la posibilidad de limitar desde que hosts se puede redimensiona
         height=200,
         image_url='www.midominio.com/image.jpg'
     )
-    
+
     print encrypted_url
 
 URL generada:
@@ -176,7 +176,7 @@ Aquí podeis ver un ejemplo de libthumbor, la librería de python.
 # Ejemplos
 
 ---
-# <span style="color:#FF3437">Tamaño (original)</span>
+# Tamaño (original)
 
 <img src='http://thumbor.eduherraiz.com/7h2Rqx7cCaxl5T0nWE0Lq62gj3s=/400x0/www.skyhdwallpaper.com/wp-content/uploads/2014/10/Pear-902x1024.jpg' />
 
@@ -186,20 +186,20 @@ Para el parámetro de tamaño os enseñaré las posibilidades a partir de esta i
 
 ---
 
-# <span style="color:#FF3437">Tamaño</span>
+# Tamaño
 
 * /300x300/
 <img src='http://thumbor.eduherraiz.com/DOERp5ZQxTAo4JI-gcAFwOkWvoQ=/300x300/thumbor.eduherraiz.com/7h2Rqx7cCaxl5T0nWE0Lq62gj3s=/400x0/www.skyhdwallpaper.com/wp-content/uploads/2014/10/Pear-902x1024.jpg' />
 
 # Presenter notes
 
-El parámetro de tamaño se compone de dos variables numéricas, que hacen referencia al ancho y alto, separadas por la letra equis. 
+El parámetro de tamaño se compone de dos variables numéricas, que hacen referencia al ancho y alto, separadas por la letra equis.
 Aquí veis como redimensiona la imagen forzando el ancho y el alto, pero al ser asímetrica, la recorta.
 
 
 ---
 
-# <span style="color:#FF3437">Tamaño</span>
+# Tamaño
 
 * /300x/
 <img src='http://thumbor.eduherraiz.com/vMU4m5rDcjLKS3GHRebuecsVN9g=/300x0/thumbor.eduherraiz.com/7h2Rqx7cCaxl5T0nWE0Lq62gj3s=/400x0/www.skyhdwallpaper.com/wp-content/uploads/2014/10/Pear-902x1024.jpg' />
@@ -210,29 +210,29 @@ Podemos obviar una de ellas para mantener la proporción de la imagen.
 
 ---
 
-# <span style="color:#FF3437">Tamaño</span>
+# Tamaño
 
 * /x700/
 <img src='http://thumbor.eduherraiz.com/fYKhy3D-hln6vs2jZg4_7yx13-I=/0x700/thumbor.eduherraiz.com/7h2Rqx7cCaxl5T0nWE0Lq62gj3s=/400x0/www.skyhdwallpaper.com/wp-content/uploads/2014/10/Pear-902x1024.jpg' />
 
-# Presenter notes 
+# Presenter notes
 
 Es posible ampliar la imagen, aunque el original sea de tamaño inferior.
 
 ---
 
-# <span style="color:#FF3437">Tamaño</span>
+# Tamaño
 
 * /x-400/
 <img src='http://thumbor.eduherraiz.com/ySeNR2LiG3At1wRdrOt_eVf0g84=/0x-400/thumbor.eduherraiz.com/7h2Rqx7cCaxl5T0nWE0Lq62gj3s=/400x0/www.skyhdwallpaper.com/wp-content/uploads/2014/10/Pear-902x1024.jpg' />
 
-# Presenter notes 
+# Presenter notes
 
 También podemos utilizar números negativos, para voltear un eje.
 
 ---
 
-# <span style="color:#FF3437">Tamaño</span>
+# Tamaño
 
 * /-x-400/
 <img src='http://thumbor.eduherraiz.com/YFtCXaGhrmDnTmo7mr-kAoMCd8Q=/-x-400/thumbor.eduherraiz.com/7h2Rqx7cCaxl5T0nWE0Lq62gj3s=/400x0/www.skyhdwallpaper.com/wp-content/uploads/2014/10/Pear-902x1024.jpg' />
@@ -243,7 +243,7 @@ O los dos ejes.
 
 ---
 
-# <span style="color:#B209AF">Filtros y parámetros (original)</span>
+# Filtros y parámetros (original)
 
 <img src='http://thumbor.eduherraiz.com/lY4BggHvlP60kByUlL74S3Dg44s=/700x0/i.huffpost.com/gen/1179678/images/o-KHALEESI-BADASS-facebook.jpg' />
 
@@ -328,6 +328,7 @@ También se pueden encadenar filtros con el símbolo 2 puntos. Los irá aplicand
 ---
 
 # Arquitectura
+## subtitulo
 
 ---
 
@@ -371,16 +372,16 @@ El almacenamiento (o storage) es donde se guardan los archivos que ya han sido c
 
 ---
 
-# <span style="color:#FF8A04">Custom, custom, custom</span>
+# Custom, custom, custom
 
-* <span style="color:#FF8A04">Custom loader</span>
+* Custom loader
     * [Cargador AWS S3](https://github.com/APSL/thumbor_aws/blob/master/thumbor_aws/loaders/s3_loader.py) (custom)
-* <span style="color:#FF8A04">Custom storage</span>
+* Custom storage
     * [Amazon S3](https://github.com/APSL/thumbor_aws/blob/master/thumbor_aws/result_storages/s3_storage.py) (custom)
-* <span style="color:#FF8A04">Vía API</span>
+* Vía API
     * [Petición POST con el fichero de la imagen](https://github.com/thumbor/thumbor/wiki/How-to-upload-images)
 
---- 
+---
 
 # Resumen
 
@@ -470,7 +471,7 @@ Si utilizamos el modo inteligente, es capaz de detectar las caras en la foto y o
 
 ---
 
-# Debug (/debug/smart/) 
+# Debug (/debug/smart/)
 
 <img src='http://thumbor.eduherraiz.com/unsafe/debug/smart/ell.h-cdn.co/assets/cm/15/11/980x653/5502909853b51_-_elle-00-opener-h-game-of-thrones-premiere-step-and-repeat.jpg' />
 
@@ -517,7 +518,7 @@ Teniendo el original ya cargado, lo que tarda más tiempo en todo el proceso thu
 
 # Optimizadores
 
-* Reducir el peso de la imagen 
+* Reducir el peso de la imagen
 * Mejoras entre un 5% y un 15%
 * JPEG
 * PNG
@@ -637,7 +638,7 @@ Gracias por atender y espero poder resolver vuestras dudas.
 
 # Presenter notes
 
-Thumbor escala muy bien, os propongo este esquema como ejemplo. 
+Thumbor escala muy bien, os propongo este esquema como ejemplo.
 
 Podríamos tener los servicios de almacenacimiento y base de datos redis en servicios cloud que nos ya nos ofrezcan alta disponibilidad.
 
